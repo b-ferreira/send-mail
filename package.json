@@ -1,13 +1,21 @@
 {
   "name": "send-mail",
   "version": "0.0.0",
+  "description": "Module used to send e-mails through my personal website",
+  "contributors": [
+    {
+      "name": "Bruno Ferreira",
+      "email": "bferreira.assis@gmail.com"
+    }
+  ],
   "private": true,
   "scripts": {
     "start": "node ./bin/www"
   },
   "dependencies": {
-    "body-parser": "~1.10.1",
-    "debug": "~2.1.1",
-    "express": "~4.10.6"
+    "body-parser": "^1.12.0",
+    "debug": "^2.1.1",
+    "express": "^5.0.0-alpha.1",
+    "multer": "^0.1.7"
   }
 }

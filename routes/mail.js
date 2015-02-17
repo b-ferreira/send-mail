@@ -5,9 +5,9 @@ var router = require('express').Router();
 var service = require('../services/mail-service.js');
 
 router.post('/', function(req, res, next) {
-	service.transporter.sendMail(service.buildMailOptions(req.body), function(error, info) {
+	service.transporter.sendMail(service.options(req.body), function(error, info) {
 		if (error) {
-			res.send('Falha ao enviar e-mail. Por favor, tente mais tarde.');
+			res.send(error.message);
 		} else {
 			res.send('E-mail enviado com sucesso.');
 		}
