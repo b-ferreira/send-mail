@@ -4,6 +4,7 @@
  */
 
 var nodemailer = require('nodemailer');
+var local = require('../config/local-config.json');
 
 var buildMailOptions = function(opt) {
 	return {
@@ -17,8 +18,8 @@ var buildMailOptions = function(opt) {
 var transporter = nodemailer.createTransport({
 	service: 'Gmail',
 	auth: {
-		user: 'bferreira.assis@gmail.com',
-		pass: '157Flex#Dev'
+		user: local.user,
+		pass: local.pass
 	}
 });
 
