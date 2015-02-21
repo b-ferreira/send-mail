@@ -10,9 +10,9 @@ var local = require('../config/local-config.json');
 // Função usada para criar o objeto de opções do e-mail a ser enviado, contendo o destinatário, remetente e o corpo do e-mail.
 var buildMailOptions = function(opt) {
 	return {
-		from: opt.from,
-		to: opt.to,
-		subject: 'E-mail de contato do site pessoal',
+		from: opt.name + '<'+opt.email+'>',
+		to: local.user,
+		subject: opt.subject,
 		text: opt.text
 	};
 }

@@ -5,11 +5,11 @@ var router = require('express').Router();
 var service = require('../services/mail-service.js');
 
 router.post('/', function(req, res, next) {
-	service.transporter.sendMail(service.options(req.body), function(error, info) {
-		if (error) {
-			res.send(error.message);
+	service.transporter.sendMail(service.options(req.body), function(err, info) {
+		if (err) {
+			throw (err)
 		} else {
-			res.send('E-mail enviado com sucesso.');
+			res.send('Email-OK.');
 		}
 	});
 });
