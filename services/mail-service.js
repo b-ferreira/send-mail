@@ -17,6 +17,11 @@ var buildMailOptions = function(opt) {
 	};
 }
 
+// Função provisória para validação do form. Verifica se os atributos obrigatórios existem no objeto enviado pelo front-end, caso esteja todo em ordem retorna "true".
+var validateForm = function(form) {
+	return form.hasOwnProperty("name") && form.hasOwnProperty("email") && form.hasOwnProperty("subject") && form.hasOwnProperty("text");
+}
+
 // Transporter, objeto responsável por enviar o e-mail baseado na configuração da conta utilizada.
 var transporter = nodemailer.createTransport({
 	service: local.service,
@@ -29,5 +34,6 @@ var transporter = nodemailer.createTransport({
 // Publica um objeto contendo a função para build das opções do e-mail e o objeto transporter.
 module.exports = {
 	options: buildMailOptions,
+	validateForm: validateForm,
 	transporter: transporter
 };
